@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.recordent","c":"WelcomeApplication","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"com.recordent","c":"WelcomeApplication","l":"WelcomeApplication()","u":"%3Cinit%3E()"}];updateSearchResults();

@@ -1,11 +1,12 @@
 package com.recordent.entity;
 
 import java.io.Serializable;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -32,14 +33,16 @@ public class EmployeeRecord implements Serializable {
     @NonNull
     private Double salary;
     
-    private Long UserId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public EmployeeRecord(@NonNull String name, @NonNull String dept, @NonNull Double salary, Long UserId ) {
+    public EmployeeRecord(@NonNull String name, @NonNull String dept, @NonNull Double salary, User user) {
         super();
         this.name = name;
         this.dept = dept;
         this.salary = salary;
-        this.UserId = UserId;;
+        this.user = user;
     }
 
     public EmployeeRecord() {
@@ -47,46 +50,43 @@ public class EmployeeRecord implements Serializable {
         System.out.println("EmployeeRecord::-0-param constructor");
     }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getDept() {
-		return dept;
-	}
+    public String getDept() {
+        return dept;
+    }
 
-	public void setDept(String dept) {
-		this.dept = dept;
-	}
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
 
-	public Double getSalary() {
-		return salary;
-	}
+    public Double getSalary() {
+        return salary;
+    }
 
-	public void setSalary(Double salary) {
-		this.salary = salary;
-	}
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
 
-	public Long getUserId() {
-		return UserId;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public void setUserId(Long userId) {
-		UserId = userId;
-	}
-
-
-    
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

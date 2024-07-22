@@ -1,10 +1,14 @@
 package com.recordent.controller;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.recordent.entity.User;
@@ -12,7 +16,7 @@ import com.recordent.service.UserService;
 
 @RestController
 @CrossOrigin
-@RequestMapping
+@RequestMapping("/recordent")
 public class UserController {
 
     @Autowired
@@ -25,11 +29,12 @@ public class UserController {
     }
 
     @PostMapping("/signin")
-    public User signIn(@RequestBody SignInRequest signInRequest) {
-        System.out.println("User Details Controller SignIn =====: " + signInRequest.getEmailOrMobile() + " ::: " + signInRequest.getPassword());
-        System.out.println("Controller Response: =====: " + userService.loginUser(signInRequest.getEmailOrMobile(), signInRequest.getPassword()));
+    public HashMap<String, Object> signIn(@RequestBody SignInRequest signInRequest) {
+        
         return userService.loginUser(signInRequest.getEmailOrMobile(), signInRequest.getPassword());
     }
+    
+   
 }
 
 class SignInRequest {
