@@ -33,8 +33,6 @@ public class UserController {
         
         return userService.loginUser(signInRequest.getEmailOrMobile(), signInRequest.getPassword());
     }
-    
-   
 }
 
 class SignInRequest {

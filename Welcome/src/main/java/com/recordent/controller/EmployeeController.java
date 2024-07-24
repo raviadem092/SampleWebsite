@@ -67,7 +67,7 @@ public class EmployeeController {
 
     @GetMapping("/viewall/{userId}")
     public List<EmployeeRecord> getEmployeesByToken(@RequestParam("token") String token, @PathVariable Long userId) {
-    	System.out.println("Validation rom Service====>> "+sessionService.validateSession(token));
+    	System.out.println("Validation from Service====>> "+sessionService.validateSession(token));
         if (sessionService.validateSession(token) == null) {
             throw new RuntimeException("Invalid token");
         }

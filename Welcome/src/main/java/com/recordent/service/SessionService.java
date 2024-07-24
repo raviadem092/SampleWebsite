@@ -12,7 +12,7 @@ import java.util.UUID;
 @Service
 public class SessionService {
     private Map<String, SessionToken> sessionStore = new HashMap<>();
-    private static final int SESSION_TIMEOUT_MINUTES = 10;
+    private static final int SESSION_TIMEOUT_MINUTES = 15;
 
     public String createSession(User user) {
         String token = UUID.randomUUID().toString();
